@@ -1,0 +1,1 @@
+This can be useful for applications that need to perform many blocking I/O operations concurrently, but increasing the thread pool size should be done cautiously because it may impact system performance.

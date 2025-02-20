@@ -1,0 +1,2 @@
+Even though we are reading multiple files concurrently, each fs.readFile call is executed asynchronously.The blocking I/O tasks are offloaded to the thread pool.
+Node.js efficiently manages concurrent tasks using the event loop and thread pool

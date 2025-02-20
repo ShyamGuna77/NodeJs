@@ -1,5 +1,4 @@
-loremThread Pool in Action 
-Thread Pool Size: By default, the libuv thread pool in Node.js has 4 threads.
+thread Pool Size: By default, the libuv thread pool in Node.js has 4 threads.
 Thread Pool Tasks: Certain I/O-bound operations like reading a file, performing DNS lookups, or crypto tasks are offloaded to these worker threads.
 Handling Concurrent Requests: Since the thread pool has a finite number of threads, if there are more tasks than available threads, the tasks will wait in a queue until a thread becomes available. This can cause some performance bottlenecks if you have many blocking tasks.
 Modifying Thread Pool Size

@@ -1,0 +1,10 @@
+Thread Pool in Node.js (Detailed Explanation with Example)
+What is a Thread Pool in Node.js?
+Node.js is single-threaded by design when executing JavaScript code, but it efficiently handles asynchronous operations using the libuv library. One of the key components of libuv is the Thread Pool, which helps Node.js perform CPU-intensive and blocking tasks efficiently.
+
+Where is the Thread Pool Used in Node.js?
+The Thread Pool in Node.js is used for handling CPU-bound operations, including:
+
+File system operations (fs module)
+Cryptographic functions (crypto module)
+DNS resolution (dns module)
