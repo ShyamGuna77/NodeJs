@@ -20,7 +20,7 @@ fs.rename("example.txt", "renamed.txt", (err) => {
 
 
 
-fs.appendFile("log.txt", "New log entry\n", "utf8", (err) => {
+fs.appendFile("example.txt", "Shyam Mannn log entry\n", "utf8", (err) => {
   if (err) {
     console.error("Error appending to file:", err);
     return;
