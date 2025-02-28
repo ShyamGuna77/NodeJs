@@ -35,8 +35,6 @@ app.all("/user", (req, res) => {
 });
 
 
-
-
 app.listen(3000,()=>{
     console.log("serveer listening in 3000");
 })
