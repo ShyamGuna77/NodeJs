@@ -115,6 +115,21 @@ app.post('/signin',(req,res)=>{
     console.log(users);
 })
 
+app.get("/me", (req, res) => {
+  const token = req.headers.authorization;
+  const user = users.find((user) => user.token === token);
+  if (user) {
+    res.send({
+      username: user.username,
+      
+    });
+  } else {
+    res.status(401).send({
+      message: "Unauthorized",
+    });
+  }
+});
+
 app.listen(3000,()=>{
     console.log("App listening on port 3000");
 })
