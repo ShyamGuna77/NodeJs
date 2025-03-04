@@ -32,6 +32,28 @@ app.post('/signin', async (req, res) => {
   }
 });
 
+app.get("/me", (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).send({ message: "Unauthorized" });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const userDetails = jwt.verify(token, JWT_SECRET);
+    const user = users.find((user) => user.username === userDetails.username);
+
+    if (user) {
+      res.send({ username: user.username });
+    } else {
+      res.status(401).send({ message: "Unauthorized" });
+    }
+  } catch (error) {
+    res.status(401).send({ message: "Unauthorized" });
+  }
+});
+
 
 
 app.listen(3000, () => {
