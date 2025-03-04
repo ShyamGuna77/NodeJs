@@ -75,7 +75,7 @@ function generateToken() {
 
   let token = "";
   for (let i = 0; i < 32; i++) {
-    // use a simple function here
+   
     token += options[Math.floor(Math.random() * options.length)];
   }
   return token;
@@ -88,6 +88,7 @@ app.post('/signup',(req,res)=>{
     res.json({
         message:"Signed Up succesfully"
     })
+    console.log(users);
 })
 
 
@@ -111,6 +112,7 @@ app.post('/signin',(req,res)=>{
         message: "Invalid username or password",
       });
     }
+    console.log(users);
 })
 
 app.listen(3000,()=>{
