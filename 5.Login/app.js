@@ -2,18 +2,18 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const cors = require("cors"); // ✅ Fixes potential CORS issues
+const cors = require("cors"); 
 
 const JWT_SECRET = "iLoveOnepIece";
 
-app.use(cors()); // ✅ Allow frontend to communicate (if needed)
-app.use(express.json()); // ✅ Ensures JSON parsing works
+app.use(cors()); 
+app.use(express.json()); 
 
 const users = [];
 
 // ✅ Middleware for Authentication
 const authentication = (req, res, next) => {
-  console.log("Request Headers:", req.headers); // Debugging log
+  console.log("Request Headers:", req.headers); 
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -22,13 +22,13 @@ const authentication = (req, res, next) => {
       .json({ message: "Unauthorized: Missing or malformed token" });
   }
 
-  const token = authHeader.split(" ")[1]; // ✅ Extracts correct token
+  const token = authHeader.split(" ")[1];
 
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({ message: "Invalid token" });
     }
-    req.user = user; // ✅ Attach user data
+    req.user = user; 
     next();
   });
 };
@@ -75,7 +75,7 @@ app.post("/signin", async (req, res) => {
   res.json({ token });
 });
 
-// ✅ Protected Route: Get User Details
+// route to get middleware data
 app.get("/me", authentication, (req, res) => {
   const user = users.find((user) => user.username === req.user.username);
 
