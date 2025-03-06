@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const JWT_SECRET = "randomilovenami";
+const JWT_SECRET = "randomilovenami"
 const app = express();
 app.use(express.json());
 
